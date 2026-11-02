@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vafre Insumos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vafre Insumos: film stretch, cintas de embalaje, etiquetas, zunchos, plástico burbuja y cartón corrugado para empresas. Despacho en 48 horas.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ficha-de-catálogo — arcos dorados del catálogo impreso, fichas de producto con especificaciones en tipo técnico, lista de cotización lateral */
+:root{
+  --paper:#fbfaf6; --surface:#ffffff; --ink:#2b2117; --muted:#6d6252; --line:#e6dfd0;
+  --gold:#c2aa59; --gold-deep:#8c6a2f; --gold-soft:#f3ecd6; --kraft:#c9a27a; --on-gold:#2b2117;
+  --wa:#1f8f52;
+  --f-display:"Young Serif", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r:14px; --max:1180px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#16130f; --surface:#1f1b16; --ink:#f1ebdf; --muted:#b3a893; --line:#352e25;
+  --gold:#d1b96a; --gold-deep:#e0c77c; --gold-soft:#2b2519; --kraft:#b58f69; --on-gold:#1b160f; --wa:#2aa866; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#16130f; --surface:#1f1b16; --ink:#f1ebdf; --muted:#b3a893; --line:#352e25;
+  --gold:#d1b96a; --gold-deep:#e0c77c; --gold-soft:#2b2519; --kraft:#b58f69; --on-gold:#1b160f; --wa:#2aa866; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--surface)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--f-body);padding:14px 20px;border-radius:999px;border:1px solid transparent;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:var(--on-gold)}
+.btn-ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:24px;min-height:70px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{height:46px;width:auto}
+.brand span{font:400 20px/1 var(--f-display);letter-spacing:.02em}
+.brand small{display:block;font:500 11px/1.4 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--ink)}
+.quote-toggle{position:relative}
+.quote-toggle .count{position:absolute;top:-6px;right:-6px;min-width:22px;height:22px;border-radius:11px;background:var(--ink);color:var(--paper);font:600 12px/22px var(--f-body);text-align:center;padding:0 6px}
+@media (max-width:860px){.nav ul{display:none}.nav .quote-toggle{margin-left:auto}.brand small{display:none}}
+
+.promo{background:var(--gold);color:var(--on-gold);font:500 13.5px/1.4 var(--f-body);text-align:center}
+.promo .wrap{padding-block:9px}
+.promo span{opacity:.75}
+/* hero */
+.hero{padding-block:56px 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(38px,5.4vw,66px);margin-top:16px}
+.hero h1 em{font-style:normal;color:var(--gold-deep)}
+.hero .lead{font-size:19px;color:var(--muted);max-width:52ch;margin-top:20px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+.facts div{min-width:0}
+.facts b{display:block;font:400 28px/1 var(--f-display);color:var(--ink)}
+.facts span{font-size:13px;color:var(--muted)}
+.arch{position:relative;aspect-ratio:4/4.4;max-width:100%;border-radius:999px 999px var(--r) var(--r);overflow:hidden;background:var(--gold-soft)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.arch-wrap{position:relative;max-width:520px;justify-self:end;width:100%}
+.arch-wrap::before{content:"";position:absolute;inset:-18px auto auto -18px;width:62%;aspect-ratio:1;border-radius:50%;border:2px solid var(--gold);z-index:-1}
+.stamp{position:absolute;left:-14px;bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 30px rgba(43,33,23,.12)}
+.stamp b{font:400 26px/1 var(--f-display);color:var(--gold-deep)}
+.stamp span{font-size:13px;line-height:1.3;color:var(--muted)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.arch-wrap{justify-self:center;max-width:420px}.stamp{left:8px}}
+
+/* rubros */
+.rubros{background:var(--ink);color:var(--paper)}
+.rubros .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;align-items:center;padding-block:18px;font-size:14px}
+.rubros b{font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.rubros span{opacity:.85}
+
+section{padding-block:80px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(30px,3.6vw,44px);margin-top:10px}
+.sec-head p{color:var(--muted);max-width:46ch}
+
+/* filtros */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font:500 14px/1 var(--f-body);padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* fichas */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-width:0}
+.card .ph{aspect-ratio:4/3;background:#fff;overflow:hidden;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .ph img.contain{object-fit:contain;padding:14px}
+.card .cat{position:absolute;top:12px;left:12px;background:var(--surface);color:var(--ink);font:600 11px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px;border:1px solid var(--line)}
+.card .body{display:flex;flex-direction:column;gap:12px;padding:18px 18px 20px;flex:1}
+.card h3{font-size:22px}
+.card p{font-size:14.5px;color:var(--muted)}
+.specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.specs span{font:500 12.5px/1 var(--f-mono);padding:7px 9px;border-radius:6px;background:var(--gold-soft);color:var(--ink);font-variant-numeric:tabular-nums}
+.swatches{display:flex;gap:6px;align-items:center}
+.swatches i{width:18px;height:18px;border-radius:50%;border:1px solid var(--line)}
+.note{font-size:12.5px !important;color:var(--muted)}
+.add{margin-top:6px;justify-content:center;width:100%}
+.add[data-added="true"]{background:var(--gold-soft);color:var(--gold-deep);border-color:var(--gold)}
+
+/* nosotros */
+.about{background:var(--surface);border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about-grid .arch{aspect-ratio:3/4}
+.about h2{font-size:clamp(30px,3.6vw,44px);margin-top:10px}
+.about .txt{display:flex;flex-direction:column;gap:18px;min-width:0}
+.about .txt>p{font-size:17px;color:var(--muted);max-width:58ch}
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:10px}
+.pillars div{border-top:2px solid var(--gold);padding-top:14px}
+.pillars h3{font-size:19px}
+.pillars p{font-size:14.5px;color:var(--muted);margin-top:6px}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.about-grid .arch{max-width:360px}.pillars{grid-template-columns:1fr}}
+
+/* personalizado */
+.custom{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:24px;overflow:hidden;background:var(--gold);color:var(--on-gold)}
+.custom .txt{padding:48px;display:flex;flex-direction:column;gap:16px;justify-content:center;min-width:0}
+.custom h2{font-size:clamp(28px,3.4vw,42px)}
+.custom p{max-width:46ch}
+.custom .eyebrow{color:var(--on-gold);opacity:.75}
+.custom .pic{position:relative;min-height:300px}
+.custom .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.custom .btn{background:var(--on-gold);color:var(--gold);align-self:flex-start}
+@media (max-width:760px){.custom{grid-template-columns:1fr}.custom .txt{padding:32px 24px}}
+
+/* contacto */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.contact-card label{font:600 13px/1 var(--f-body);display:block;margin-bottom:6px}
+.contact-card input,.contact-card textarea{width:100%;font:400 15px/1.4 var(--f-body);padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.contact-card textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.info{display:flex;flex-direction:column;gap:22px}
+.info h2{font-size:clamp(30px,3.6vw,44px);margin-top:10px}
+.info dl{display:grid;grid-template-columns:auto 1fr;gap:12px 20px;margin:0}
+.info dt{font:600 12px/1.6 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.info dd{margin:0;font-size:17px;min-width:0;overflow-wrap:anywhere}
+.info dd a{color:inherit}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:var(--paper)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-block:28px;font-size:14px}
+footer span{opacity:.75}
+
+/* cotización */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--surface);border-left:1px solid var(--line);z-index:80;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s ease;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px);box-shadow:-20px 0 50px rgba(0,0,0,.12)}
+.drawer.open{transform:none}
+.drawer header{position:static;background:none;backdrop-filter:none;display:flex;justify-content:space-between;align-items:center;padding:20px 22px}
+.drawer h2{font-size:24px}
+.x{background:none;border:0;font-size:28px;line-height:1;cursor:pointer;color:var(--ink)}
+.qlist{flex:1;overflow:auto;padding:4px 22px;display:flex;flex-direction:column;gap:12px}
+.qitem{display:grid;grid-template-columns:1fr auto;gap:8px 12px;padding:14px;border:1px solid var(--line);border-radius:12px}
+.qitem b{font-weight:600}
+.qitem select,.qitem input{font:400 14px var(--f-body);padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
+.qitem .fields{grid-column:1/-1;display:grid;grid-template-columns:1fr 92px;gap:8px}
+.qitem button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:13px;text-decoration:underline}
+.qempty{color:var(--muted);text-align:center;padding:40px 10px}
+.qfoot{padding:18px 22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.qfoot .btn{justify-content:center}
+.qfoot small{color:var(--muted);font-size:12.5px}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:70}
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.fab svg{width:30px;height:30px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="promo"><div class="wrap">Despacho gratis en la Región Metropolitana por compras sobre $120.000 <span>(aplican condiciones)</span></div></div>
+<header>
+  <nav class="wrap nav" aria-label="Principal">
+    <a class="brand" href="#inicio"><img src="img/logo.png" alt="Logo Vafre Insumos"><div><span>Vafre Insumos</span><small>Calidad · Variedad · Tu mejor aliado</small></div></a>
+    <ul>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#personalizados">Personalizados</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="btn btn-gold quote-toggle" id="openQuote" type="button">Mi cotización <span class="count" id="qcount">0</span></button>
+  </nav>
+</header>
+
+<main id="inicio">
+  <div class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Insumos de embalaje para empresas</span>
+        <h1>Todo lo que necesitas para embalar, <em>en 48 horas.</em></h1>
+        <p class="lead">Film stretch, cintas, etiquetas, zunchos, plástico burbuja y cartón corrugado para bodegas, transporte, agrícola y logística. Atención personalizada y precios por caja.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="#productos">Ver productos</a>
+          <a class="btn btn-wa wa-link" href="https://wa.me/56950002110" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>Cotizar por WhatsApp</a>
+        </div>
+        <div class="facts">
+          <div><b>48 h</b><span>plazo de entrega*</span></div>
+          <div><b>15</b><span>líneas de producto</span></div>
+          <div><b>2022</b><span>atendiendo empresas</span></div>
+        </div>
+      </div>
+      <div class="arch-wrap">
+        <div class="arch"><img src="img/hero.jpg" alt="Operaria embalando cajas en una bodega con grúa horquilla al fondo"></div>
+        <div class="stamp"><span>Llámanos o escríbenos<br><b style="font-size:20px">+56 9 5000 2110</b></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rubros"><div class="wrap"><b>Atendemos</b><span>Sector productivo</span><span>Transporte</span><span>Agrícola</span><span>Embalajes</span><span>Almacenaje</span><span>Servicios logísticos</span></div></div>
+
+  <section id="productos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Catálogo</span><h2>Nuestros productos</h2></div>
+        <p>Agrega lo que necesitas a tu cotización y envíala por WhatsApp en un solo mensaje. Las ventas son por caja, salvo que se indique otra cosa.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="personalizados" style="padding-top:0">
+    <div class="wrap">
+      <div class="custom">
+        <div class="txt">
+          <span class="eyebrow">Hecho a tu medida</span>
+          <h2>Cinta de embalaje con el logo de tu empresa</h2>
+          <p>Tus cajas salen identificadas y queda a la vista si alguien las abrió. También fabricamos etiquetas autoadhesivas a la medida que nos pidas.</p>
+          <a class="btn wa-link" data-msg="Hola, me interesa cotizar cinta impresa personalizada con nuestro logo." href="https://wa.me/56950002110" target="_blank" rel="noopener">Pedir una cotización</a>
+        </div>
+        <div class="pic"><img src="img/cinta-personalizada.jpg" alt="Rollos de cinta impresa con logos de empresas" style="object-position:40% 35%"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros" class="about">
+    <div class="wrap about-grid">
+      <div class="arch"><img src="img/cta.jpg" alt="Conductor revisando un pedido en su tablet" style="object-position:40% 50%"></div>
+      <div class="txt">
+        <span class="eyebrow">Sobre Vafre</span>
+        <h2>Un proveedor que responde, desde 2022</h2>
+        <p>Vafre Insumos nació en 2022 con un objetivo simple: dar un servicio distinto, basado en la honestidad y en una atención personalizada. Abastecemos de insumos a empresas del sector productivo, transporte, agrícola, embalajes, almacenaje y servicios logísticos.</p>
+        <div class="pillars">
+          <div><h3>Entrega en 48 horas</h3><p>Nuestro compromiso es entregar de forma rápida y efectiva, en un plazo no mayor a 48 horas.*</p></div>
+          <div><h3>Atención directa</h3><p>Hablas con una persona que conoce tu pedido, de principio a fin.</p></div>
+          <div><h3>Variedad</h3><p>Films, cintas, etiquetado, zunchado y protección en un mismo proveedor.</p></div>
+          <div><h3>¿No lo encontraste?</h3><p>Cotiza el producto que buscas y te enviamos una pronta respuesta.</p></div>
+        </div>
+        <p class="note">*No incluye productos a pedido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap contact-grid">
+      <div class="info">
+        <div><span class="eyebrow">Contacto</span><h2>Estamos para ayudarte</h2></div>
+        <p style="color:var(--muted);max-width:44ch">Cuéntanos qué necesitas y cuánto, y te respondemos con precio y plazo de entrega.</p>
+        <dl>
+          <dt>Teléfono</dt><dd>+56 9 5000 2110</dd>
+          <dt>WhatsApp</dt><dd>+56 9 5000 2110</dd>
+          <dt>Correo</dt><dd><a href="mailto:vfreites@vafreinsumos.cl">vfreites@vafreinsumos.cl</a></dd>
+          <dt>Dirección</dt><dd>San Joaquín, Santiago de Chile</dd>
+          <dt>Horario</dt><dd>Lunes a viernes, 9:00 a 17:00</dd>
+        </dl>
+      </div>
+      <form class="contact-card" id="contactForm" novalidate>
+        <div class="row2">
+          <div><label for="cName">Nombre</label><input id="cName" autocomplete="name" required></div>
+          <div><label for="cCompany">Empresa</label><input id="cCompany" autocomplete="organization"></div>
+        </div>
+        <div><label for="cMsg">¿Qué necesitas?</label><textarea id="cMsg" required placeholder="Ej.: 10 cajas de cinta transparente 48x100 m y 2 rollos de plástico burbuja"></textarea></div>
+        <button class="btn btn-wa" type="submit" style="justify-content:center">Enviar por WhatsApp</button>
+        <p class="note" id="formNote">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Vafre Insumos · Calidad, variedad, tu mejor aliado</span><span>San Joaquín, Santiago · +56 9 5000 2110 · vfreites@vafreinsumos.cl</span></div></footer>
+
+<a class="fab wa-link" href="https://wa.me/56950002110" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg></a>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Mi cotización" aria-hidden="true">
+  <header><h2>Mi cotización</h2><button class="x" id="closeQuote" type="button" aria-label="Cerrar">×</button></header>
+  <div class="qlist" id="qlist"></div>
+  <div class="qfoot">
+    <label for="qCompany" style="font:600 13px var(--f-body)">Empresa o nombre (opcional)</label>
+    <input id="qCompany" style="font:400 15px var(--f-body);padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink)">
+    <a class="btn btn-wa" id="sendQuote" href="https://wa.me/56950002110" target="_blank" rel="noopener">Enviar cotización por WhatsApp</a>
+    <small>Te respondemos con precios y plazo. No se realiza ningún cobro.</small>
+  </div>
+</aside>
+
+<script>
+const WA='56950002110';
+const CATS=['Todos','Films','Cintas','Etiquetado','Zunchado','Protección'];
+const P=[
+ {id:'film-stretch',cat:'Films',name:'Film stretch manual transparente',img:'film-stretch',d:'Película plástica estirable para embalar y paletizar. Se adapta a cualquier forma y su transparencia deja ver la carga.',p:['1,0 kg neto · 20 µm','1,9 kg neto · 20 µm']},
+ {id:'film-colores',cat:'Films',name:'Film stretch manual de colores',img:'film-colores',d:'Protege visualmente la mercadería y permite diferenciar productos o pallets según su envío.',p:['1,5 kg'],colors:[['Azul','#1f4fa8'],['Verde','#2e8b3d'],['Naranja','#ee7b22'],['Negro','#1b1b1b'],['Rojo','#d0302b'],['Amarillo','#f2c419']],n:'6 unidades por caja.'},
+ {id:'film-pvc',cat:'Films',name:'Film alimenticio PVC',img:'film-pvc',d:'Para conservar alimentos, envolverlos directo o en bandeja. Ideal para frutas, verduras, embutidos y envases.',p:['30x100 m (20 un.)','30x300 m (10 un.)','30x1400 m','38x1400 m','45x1400 m']},
+ {id:'cinta-embalaje',cat:'Cintas',name:'Cinta de embalaje transparente y café',img:'cinta-embalaje',d:'Cinta adhesiva para cerrar cajas, unir pallets y fijar cables u otros productos.',p:['48x40 m (72 un.)','48x100 m (72 un.)','72x100 m (36 un.)','48x1000 m (6 un.)'],n:'Venta por caja. Consulta por otros tamaños.'},
+ {id:'cinta-colores',cat:'Cintas',name:'Cinta de embalaje de colores',img:'cinta-colores',d:'Identifica, agrupa o clasifica cajas por color según su contenido o destino.',p:['48x100 m (72 un.)'],colors:[['Roja','#d0302b'],['Verde','#2e8b3d'],['Amarilla','#f2c419'],['Azul','#1f4fa8']],n:'Venta por caja.'},
+ {id:'cinta-fragil',cat:'Cintas',name:'Cinta impresa “Frágil”',img:'cinta-fragil',d:'Cierra la caja y avisa a quien la manipula que el contenido es delicado. Alta adhesión y resistente a humedad y temperatura.',p:['48x40 m','48x100 m']},
+ {id:'cinta-personalizada',cat:'Cintas',name:'Cinta impresa personalizada',img:'cinta-personalizada',d:'Cinta con tu logo o mensaje. Identifica tus paquetes y deja en evidencia si una caja fue abierta.',p:['48x40 m','48x100 m'],n:'Formato y medidas a petición del cliente.'},
+ {id:'masking',cat:'Cintas',name:'Masking tape',img:'masking',contain:true,d:'Cinta de papel para proteger superficies al pintar. Se retira sin dejar residuos.',p:['18x40 m','24x40 m','36x40 m','48x40 m']},
+ {id:'etiquetas',cat:'Etiquetado',name:'Etiquetas autoadhesivas',img:'etiquetas',d:'Para rotular casi cualquier material. Se fabrican a medida y en la forma que necesites.',p:['100x50 mm','100x100 mm','100x150 mm','100x200 mm'],n:'Se hacen a pedido y a medida.'},
+ {id:'ribbon',cat:'Etiquetado',name:'Cinta de transferencia térmica OUT',img:'cinta-ribbon',d:'Ribbon para imprimir códigos de barra, facturas y datos variables. Alta definición y resistente a la abrasión.',p:['110x74 m','110x300 m','110x450 m'],n:'Venta por caja.'},
+ {id:'zuncho',cat:'Zunchado',name:'Zuncho',img:'zuncho',contain:true,d:'Fleje plástico o metálico para asegurar cargas en pallets y amarrar paquetes.',p:['1/2″','3/4″','5/8″'],n:'En plástico o metal.'},
+ {id:'kit',cat:'Zunchado',name:'Kit enzunchadora manual',img:'kit',contain:true,d:'Tensor, flejadora y sellador para flejes de 12 a 16 mm. Tensado y sellado seguro de cajas y pallets.',p:['Flejes 12 a 16 mm']},
+ {id:'sellos',cat:'Zunchado',name:'Sellos metálicos',img:'sellos',contain:true,d:'Cierran el zuncho y mantienen la carga firme durante el traslado.',p:['1/2″','3/4″']},
+ {id:'burbuja',cat:'Protección',name:'Plástico burbuja',img:'burbuja',d:'Amortigua golpes y protege artículos frágiles al almacenarlos o enviarlos.',p:['1 m x 80 m','1 m x 100 m'],n:'Consulta por otras medidas.'},
+ {id:'carton',cat:'Protección',name:'Cartón corrugado',img:'carton',contain:true,d:'Papel corrugado de fibra 100% reciclada para envolver, separar y proteger productos.',p:['Rollo 25 kg · 1,20 x 70 m']}
+];
+const $=s=>document.querySelector(s);
+const waURL=t=>'https://wa.me/'+WA+'?text='+encodeURIComponent(t);
+let quote=[];
+try{quote=JSON.parse(localStorage.getItem('vafre-quote')||'[]')}catch(e){quote=[]}
+const save=()=>{try{localStorage.setItem('vafre-quote',JSON.stringify(quote))}catch(e){}};
+let cat='Todos';
+
+function renderFilters(){
+  $('#filters').innerHTML=CATS.map(c=>`<button class="chip" type="button" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join('');
+}
+function renderGrid(){
+  $('#grid').innerHTML=P.filter(p=>cat==='Todos'||p.cat===cat).map(p=>{
+    const inQ=quote.some(q=>q.id===p.id);
+    return `<article class="card">
+      <div class="ph"><img loading="lazy" class="${p.contain?'contain':''}" src="img/${p.img}.jpg" alt="${p.name}"><span class="cat">${p.cat}</span></div>
+      <div class="body">
+        <h3>${p.name}</h3><p>${p.d}</p>
+        ${p.colors?`<div class="swatches" aria-label="Colores disponibles">${p.colors.map(c=>`<i title="${c[0]}" style="background:${c[1]}"></i>`).join('')}</div>`:''}
+        <div class="specs">${p.p.map(x=>`<span>${x}</span>`).join('')}</div>
+        ${p.n?`<p class="note">${p.n}</p>`:''}
+        <button class="btn btn-ghost add" type="button" data-id="${p.id}" data-added="${inQ}">${inQ?'✓ En tu cotización':'Agregar a cotización'}</button>
+      </div></article>`}).join('');
+}
+function renderQuote(){
+  $('#qcount').textContent=quote.length;
+  const L=$('#qlist');
+  if(!quote.length){L.innerHTML='<p class="qempty">Aún no agregas productos. Elige los que necesitas en el catálogo.</p>';}
+  else L.innerHTML=quote.map((q,i)=>{const p=P.find(x=>x.id===q.id);
+    const opts=(p.colors?p.colors.map(c=>p.p[0]+' · '+c[0]):p.p);
+    return `<div class="qitem"><b>${p.name}</b><button type="button" data-rm="${i}">Quitar</button>
+      <div class="fields"><select id="qs-${p.id}" data-i="${i}" aria-label="Presentación">${opts.map(o=>`<option ${o===q.opt?'selected':''}>${o}</option>`).join('')}</select>
+      <input id="qq-${p.id}" data-i="${i}" type="number" min="1" value="${q.qty}" aria-label="Cantidad de cajas o unidades"></div></div>`}).join('');
+  updateSend();
+}
+function updateSend(){
+  const who=$('#qCompany').value.trim();
+  let t='Hola Vafre, quiero cotizar:\n'+quote.map(q=>{const p=P.find(x=>x.id===q.id);return `• ${p.name} – ${q.opt} – Cantidad: ${q.qty}`}).join('\n');
+  if(who)t+='\n\nEmpresa: '+who;
+  $('#sendQuote').href=quote.length?waURL(t):'https://wa.me/'+WA;
+}
+function open(o){$('#drawer').classList.toggle('open',o);$('#drawer').setAttribute('aria-hidden',!o);$('#scrim').hidden=!o}
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.chip'); if(c){cat=c.dataset.c;renderFilters();renderGrid();}
+  const a=e.target.closest('.add'); if(a){const id=a.dataset.id;
+    if(!quote.some(q=>q.id===id)){const p=P.find(x=>x.id===id);quote.push({id,opt:p.colors?p.p[0]+' · '+p.colors[0][0]:p.p[0],qty:1});save();}
+    renderGrid();renderQuote();open(true);}
+  const r=e.target.closest('[data-rm]'); if(r){quote.splice(+r.dataset.rm,1);save();renderGrid();renderQuote();}
+  const w=e.target.closest('.wa-link[data-msg]'); if(w){w.href=waURL(w.dataset.msg)}
+});
+$('#qlist').addEventListener('change',e=>{const i=e.target.dataset.i;if(i==null)return;
+  if(e.target.tagName==='SELECT')quote[i].opt=e.target.value;else quote[i].qty=Math.max(1,parseInt(e.target.value)||1);save();updateSend();});
+$('#qCompany').addEventListener('input',updateSend);
+$('#openQuote').onclick=()=>open(true);$('#closeQuote').onclick=()=>open(false);$('#scrim').onclick=()=>open(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')open(false)});
+document.querySelectorAll('.wa-link[data-msg]').forEach(w=>w.href=waURL(w.dataset.msg));
+$('#contactForm').addEventListener('submit',e=>{e.preventDefault();
+  const n=$('#cName').value.trim(),co=$('#cCompany').value.trim(),m=$('#cMsg').value.trim();
+  if(!n||!m){$('#formNote').textContent='Escribe tu nombre y lo que necesitas para continuar.';return;}
+  const t=`Hola Vafre, soy ${n}${co?' de '+co:''}.\n${m}`;
+  const a=document.createElement('a');a.href=waURL(t);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
+  $('#formNote').textContent='Abrimos WhatsApp con tu mensaje. Si no se abrió, escríbenos al +56 9 5000 2110.';});
+$('#yr').textContent=new Date().getFullYear();
+renderFilters();renderGrid();renderQuote();
+</script>
+</body>
+</html>
